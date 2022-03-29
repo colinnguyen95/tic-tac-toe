@@ -1,0 +1,19 @@
+.ttt-container{
+    width: 800px;
+    height: 800px;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.ttt-container > div {
+    border: 1px solid black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+}
+
+/* .ttt-container > div:nth-child(-n + 2) {
+    border-right: 1px solid black;
+} */
+
