@@ -1,16 +1,68 @@
-.ttt-container{
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.game-container h1 {
+    margin: 50px;
+    font-size: 5em;
+}
+
+.board{
     width: 800px;
     height: 800px;
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
 }
 
-.ttt-container > div {
+.board > div {
     border: 1px solid black; 
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 5em;
+    cursor: pointer;
+}
+
+.square:first-child, 
+.square:nth-child(2),
+.square:nth-child(3) {
+    border-top: none;
+}
+
+.square:nth-child(3n + 1){
+    border-left: none;
+}
+
+.square:nth-child(3n + 3){
+    border-right: none;
+}
+
+.square:last-child,
+.square:nth-child(7),
+.square:nth-child(8){
+    border-bottom: none;
+}
+
+.endgame {
+    display: none;
+    width: 200px;
+    top: 120px;
+    background-color: rgba(205,133,63,0.8);
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 2em;;
 }
 
 /* .ttt-container > div:nth-child(-n + 2) {
