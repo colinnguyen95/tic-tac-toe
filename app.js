@@ -20,7 +20,7 @@ startGame();
 // })
 
 function startGame(){
-    document.querySelector('.endgame').getElementsByClassName.display = 'none';
+    document.querySelector('.endgame').style.display = 'none';
     origBoard = Array.from(Array(9).keys());
     console.log(origBoard);
     for(var i = 0; i < squares.length; i++) {
