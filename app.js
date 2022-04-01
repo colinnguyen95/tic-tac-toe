@@ -32,7 +32,12 @@ function startGame(){
 
 function turnClick(square) {
     console.log(square.target.id);
+
     turn(square.target.id, humanPlayer);
+
+    if(!checkTie()){
+        turn(bestSpot(), aiPlayer);
+    }
 }
 
 function turn(squareId, player) {
@@ -69,4 +74,31 @@ function gameOver(gameWon) {
     for(let i = 0; i < squares.length; i++){
         squares[i].removeEventListener('click', turnClick, false);
     }
+    declareWinner(gameWon.player === humanPlayer ? 'You win!' : 'You lose!');
 }
+
+function declareWinner(who) {
+    document.querySelector('.endgame').style.display = 'block';
+    document.querySelector('.endgame .text').textContent = who;
+}
+
+function emptySquares() {
+    return origBoard.filter(s => typeof s === 'number')
+}
+
+function bestSpot() {
+    return emptySquares()[0];
+}
+
+function checkTie() {
+    if (emptySquares().length === 0) {
+        for(let i = 0; i < squares.length; i++){
+            squares[i].style.backgroundColor = 'green';
+            squares[i].removeEventListener('click', turnClick, false);
+        }
+        declareWinner("Tie Game!");
+        return true;
+    }
+    return false;
+}
+
